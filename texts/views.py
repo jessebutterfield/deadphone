@@ -5,7 +5,9 @@ import twilio.twiml
 
 account_sid = os.getenv("TWILIO_ACCOUNT_SID")
 auth_token = os.getenv("TWILIO_AUTH_TOKEN")
-client = TwilioRestClient(account_sid, auth_token)
+print(account_sid)
+print(auth_token)
+client = TwilioRestClient(account=account_sid, token=auth_token)
 
 def index(request):
     return HttpResponse("Hello, world. You're at the texts index.")
