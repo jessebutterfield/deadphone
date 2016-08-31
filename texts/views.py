@@ -3,8 +3,8 @@ import os
 from twilio.rest import TwilioRestClient
 import twilio.twiml
 
-account_sid = os.getenv("ACCOUNT_SID")
-auth_token = os.getenv("AUTH_TOKEN")
+account_sid = os.getenv("TWILIO_ACCOUNT_SID")
+auth_token = os.getenv("TWILIO_AUTH_TOKEN")
 client = TwilioRestClient(account_sid, auth_token)
 
 def index(request):
