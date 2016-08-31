@@ -16,3 +16,4 @@ class Conversation(models.Model):
     from_phone = models.CharField(max_length=30)
     to_phone = models.CharField(max_length=30)
     expires_at = models.DateTimeField()
+    user = models.ForeignKey(User)
