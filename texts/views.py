@@ -16,8 +16,8 @@ def reply(request):
     numbers = TwilioNumber.objects.filter(number=to)
     message_body = request.POST['Body']
     target = message_body.split()[0]
-    contact = Contact.objects.filter(user=numbers[0], first_name=target)
-    message = client.messages.create(to=contact[0], from_=to,
+    contact = Contact.objects.filter(user=numbers[0].user, first_name=target)
+    message = client.messages.create(to=contact[0].number, from_=to,
                                      body=message_body)
     number = request.POST['From']
     return HttpResponse("")
