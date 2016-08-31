@@ -18,6 +18,6 @@ def reply(request):
     target = message_body.split()[0]
     contact = Contact.objects.filter(user=numbers[0], first_name=target)
     message = client.messages.create(to=contact[0], from_=to,
-                                     body="Hello there!")
+                                     body=message_body)
     number = request.POST['From']
     return HttpResponse("")
