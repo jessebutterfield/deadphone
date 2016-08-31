@@ -6,10 +6,16 @@ import sys
 
 client = TwilioRestClient(account=settings.TWILIO_ACCOUNT_SID, token=settings.TWILIO_AUTH_TOKEN)
 
+
 def index(request):
+    if not request.user.is_authenticated():
+        print(request.META)
+        return HttpResponse('', status=401)
+    print(request.user)
     return HttpResponse("Hello, world. You're at the texts index.")
 
 @csrf_exempt
 def reply(request):
-    print(request.body, file=sys.stderr)
+    if not request.user.is_authenticated:
+        return HttpResponse('', status=401)
     return HttpResponse("")
