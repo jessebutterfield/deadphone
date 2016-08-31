@@ -3,7 +3,6 @@ from twilio.rest import TwilioRestClient
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from texts.models import TwilioNumber, Contact
-import sys
 
 client = TwilioRestClient(account=settings.TWILIO_ACCOUNT_SID, token=settings.TWILIO_AUTH_TOKEN)
 
