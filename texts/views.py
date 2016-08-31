@@ -9,7 +9,7 @@ client = TwilioRestClient(account=settings.TWILIO_ACCOUNT_SID, token=settings.TW
 def index(request):
     return HttpResponse("Hello, world. You're at the texts index.")
 
-@csrf_exempt()
+@csrf_exempt
 def reply(request):
     print(request.body, file=sys.stderr)
     return HttpResponse("")
